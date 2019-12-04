@@ -21,7 +21,7 @@ def main(size = 8, reverse = my_reverse):
 
 main()
 
-# big-O notation = O(n)
+# big-O notation = O(log n)
 
 """
 2. Python’s pow function returns the result of raising a number to a given power. Define a function 
@@ -36,14 +36,14 @@ def recursive_power(x,y):
         return 1
     else:
         return x * recursive_power(x, y - 1)
-print(recursive_power(3,3))
+print(recursive_power(3, 1))
 
 def loop_power(x, y):
     ans = x
     for i in range(y-1):
-        ans *= y
+        ans *= x
     return ans
 
-print(loop_power(3, 3))
+print(loop_power(3, 1))
 
-# big-O notation = O(n)
+# big-O notation = O(log n)
