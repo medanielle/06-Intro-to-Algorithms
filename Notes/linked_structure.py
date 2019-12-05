@@ -17,8 +17,6 @@ As the names implies, a linked structure consists of items that are linked to ot
         - A link to the next node in the structure
 
 In python, we set up nodes and linked strucutres by using references to objects
-
-
 '''
 
 # this class will represent a singly linked structure
@@ -28,6 +26,13 @@ class Node():
         # instantiates a Node with a default next of none
         self.data = data
         self.next = next
+
+
+# This linkedlist class will instantiate Node objects and we'll add methods to this class to add functionality
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
 
 def example():
     # just an empty link
@@ -138,15 +143,18 @@ def test_search(head, target_item = 3):
             #     probe = probe.next
             #     index -= 1 
             # return probe.data
+
 def test_access_index(head):
-    index = (what item # you are looking for)
+    index = 0 # (what item # you are looking for)
     # Assumes 0 <= index < n
     probe = head
     while index > 0:
         probe = probe.next
         index -= 1 
     return probe.data
-    
+# print_node(create_nodes())
+# print(test_access_index(create_nodes()))
+
 """
 Replacement = Also, employs the traversal pattern. you search for a given item or position and replace that item when found. If If you no item is found then no replacement happend and the operation returns False. If replacement occurs the operation returns True.
 """
@@ -159,6 +167,21 @@ Replacement = Also, employs the traversal pattern. you search for a given item o
         #     return True
         # else:
         #     return False
+
+def test_replace(head, target_item=2):
+    probe = head 
+    while probe != None and target_item != probe.data:
+        probe = probe.next
+    
+    if probe != None:   # meaning it equals SOMETHING, stopped before the end
+        probe.data = 10
+        return True, probe.data
+    else:
+        return False
+
+#print_node(create_nodes())
+#print(test_replace(create_nodes()))
+
 
 """
 Inserting at the Begining - better than linear complexity on a linked structure
@@ -183,18 +206,7 @@ Inserting at the End - Consider two cases
         #     probe.next = newNode
 
 
-def test_add_end_node():
-    head = None
-    # Add 5 nodes to the begining of the the linked structure
-    for count in range(5, 0, -1):
-        head = Node(count, head)
-
-    # print the contents of the structure
-    while head != None:
-        print(head.data)
-        # print(head.next)
-        head = head.next
-
+def test_add_end_node(head):
     newNode = Node(10)   # next=None by default, so you don't need to add it
     if head is None:
         head = newNode
@@ -204,12 +216,9 @@ def test_add_end_node():
             probe = probe.next
         probe.next = newNode
 
-    while head != None:
-        print(head.data)
-        # print(head.next)
-        head = head.next
+    return head
 
-#test_add_end_node()
+print_node(test_add_end_node(create_nodes()))
 """
 Removing at beginning - this operation returns the removed item
 """
@@ -219,7 +228,6 @@ Removing at beginning - this operation returns the removed item
         # head = head.next
         # return removed_item
 
-        # FUCK ME I HAVE NO IDEA WHAT THIS IS SAYING
 
 """
 Removing at the End - Two cases to consider
@@ -250,8 +258,8 @@ def remove_from_end(head):
         probe.next = None
     return removed_item
 
-#print_node(create_nodes())
-#print('\n', remove_from_end(create_nodes()))
+# print_node(create_nodes())
+# print('\n', remove_from_end(create_nodes()))
 """
 Insert at any position - two cases to consider
         1. the node's next pointer is None. This means that i>=n, so you should place the new item at the end of the linked structure
@@ -326,4 +334,4 @@ def test_remove_any(head, index = 3):
     print(removed_item, '\n')
     return head
 
-#print_node(test_remove_any(create_nodes()))
+# print_node(test_remove_any(create_nodes()))
