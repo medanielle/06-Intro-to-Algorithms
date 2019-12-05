@@ -51,12 +51,12 @@ testing()
 
 def testing_2():
     d_list = DoublyLinkedList()
-    head = DoublyLinkedList.append(1)
-    tail = head
+    #head = DoublyLinkedList.append(1)
+    #tail = head
 
-    for data in range(2, 6):
-        tail.next = DoublyLinkedList.append(data)
-        tail = tail.next
+    #for data in range(2, 6):
+        #tail.next = DoublyLinkedList.append(data)
+        #tail = tail.next
 
     #pointer = tail
     #while  
