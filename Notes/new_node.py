@@ -34,14 +34,14 @@ class LinkedList:
                 current_node = current_node.next
             current_node.next = newNode
 
-################## ************ still confused *********************########################
+
     # add Node to beginning
     def prepend(self, data):
         # instantiate a new node
         newNode = Node(data)
         newNode.next = self.head
         self.head = newNode
-################## ************ still confused *********************########################
+
 
     #inserting node within the linked list
     def insert_node(self, index, data):
@@ -196,13 +196,21 @@ class CircularLinked:
             print(current_node.data)
             
         
+        def Howard_reverse(self):
+            current = self.head
+            prev = None
+            next = None
+            while curr is not None:
+                next = current.next
+                current.next = prev
+                prev = current
+                current = next
 
-
-c_linked = CircularLinked()
-c_linked.append(5)
-c_linked.append(6)
-c_linked.append(7)
-c_linked.display_linked()
+# c_linked = CircularLinked()
+# c_linked.append(5)
+# c_linked.append(6)
+# c_linked.append(7)
+# c_linked.display_linked()
 
 
 
