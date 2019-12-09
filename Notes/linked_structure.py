@@ -218,7 +218,7 @@ def test_add_end_node(head):
 
     return head
 
-print_node(test_add_end_node(create_nodes()))
+#print_node(test_add_end_node(create_nodes()))
 """
 Removing at beginning - this operation returns the removed item
 """
@@ -335,3 +335,125 @@ def test_remove_any(head, index = 3):
     return head
 
 # print_node(test_remove_any(create_nodes()))
+
+def get_len(head):
+    count = 0
+    while head != None:
+        count += 1
+        head = head.next
+    return count
+
+def get_len_recur(head):
+    if head is None:
+        return 0
+    return 1 + get_len_recur(head.next)
+
+# print(get_len(create_nodes()))
+# print(get_len_recur(create_nodes()))
+
+
+#def class_len_recur(self, node)
+#   if node is None:
+#        return 0
+#    return 1 + (self.class_len_recur(node.next))
+
+#print(class_len_recur(llist.head))
+
+def node_swap(head, key1, key2):
+    current = head
+    if current is None:
+        print('Error, empty list')
+    while head.next != None:
+        head = head.next
+        if key1 == head.data:
+            while True:
+                pass
+    key1_next = head.next
+    key1_prev = head.prev
+
+def swap_nodes(head, key1, key2):
+    if key1 == key2:
+        return head
+    
+    prev_1 = None
+    curr_1 = head #(self.head)
+    while curr_1 and curr_1.data != key1:
+        prev_1 = curr_1
+        curr_1 = curr_1.next
+    # print(prev_1.data)
+    # print(curr_1.data)
+
+    prev_2 = None
+    curr_2 = head # or self.head
+    while curr_2 and curr_2.data !=key2:
+        prev_2 = curr_2
+        curr_2 = curr_2.next
+    
+    if not curr_2 or not curr_1:
+        return #'Error'
+
+    # check if the previous pointer is blank, and set head
+    if prev_1:
+        prev_1.next = curr_2
+    else:
+        #self.head = prev_1
+        head = curr_2
+
+    # same check if prev 2 is 
+    if prev_2:
+        prev_2.next = curr_1
+    else:
+        #self.head = prev_2
+        head = curr_1
+    # a, b = b,
+    curr_1.next, curr_2.next = curr_2.next, curr_1.next
+    return head
+
+#print_node(swap_nodes(create_nodes(), 2, 3))
+
+def print_helper(node, name):
+    if node is None:
+        print(name + ": None")
+    else:
+        print(name + " : " + str(node.data))
+
+def reverse_single(head):
+    prev = None
+    curr = head         #self.head
+    while curr != None:
+        next = curr.next        # save next
+        curr.next = prev        # reverse
+        print_helper(prev, "PREV")
+        print_helper(curr, "CURR")
+        print_helper(next, "NEXT")
+        print('\n')
+
+        prev = curr             # advance prev 
+        curr = next             # advance next
+    #self.head = prev
+    return prev
+
+#print_node(create_nodes())
+#print_node(reverse_single(create_nodes()))
+
+def reverse_recursive(head):
+ 
+    def reverse_recursive(cur, prev):
+        if not cur:
+            return prev
+    
+        next = cur.next
+        cur.next = prev
+        prev = cur
+        cur = next
+        return reverse_recursive(cur, prev)
+
+    head = reverse_recursive(cur = head, prev = None) # self.head
+    return head
+
+    
+
+print_node(create_nodes())
+print_node(reverse_recursive(create_nodes()))
+
+

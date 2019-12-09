@@ -28,3 +28,96 @@ Extras Exercises:
         linked structure. 
 
 """
+
+class Node:
+
+    def __init__(self, data, prev = None, next = None):
+        self.data = data
+        self.prev = prev
+        self.next = next
+    
+    def __repr__(self):
+        return repr(self.data)
+
+
+class DoublyLinkedList:
+
+    def __init__(self):
+        # constructor
+        self.head = None
+        self.tail = None
+
+    def display_dlist(self):
+        current = self.head
+        while current is not None:
+            print("Next: ", current)
+            current = current.next
+        print('-'*30)
+        rev = self.tail
+        while rev is not None:
+            print("Prev: ", rev)
+            rev = rev.prev
+        print('*'*30)
+
+    def append(self, data):
+        new_node = Node(data)
+        if self.tail == None:
+            self.head = new_node
+            self.tail = self.head
+        else:
+            prev_node = self.tail
+            self.tail = new_node
+            new_node.prev = prev_node
+            prev_node.next = self.tail
+
+    def prepend(self, data):
+        new_node = Node(data)
+        if self.head is None:
+            self.head = new_node
+            self.tail = self.head
+        else:
+            new_node.next = self.head
+            self.head = new_node
+            new_node.next.prev = self.head
+
+    def insert(self, index, data):
+        new_node = Node(data)
+        if self.head is None:
+            self.head = new_node
+            self.tail = self.head
+        else:
+            current = self.head
+            while index > 1 or current.next is not self.tail:
+                index -= 1
+                current = current.next
+            if current.next is None:
+                new_node.next = current
+                new_node.prev = current.prev
+                self.tail.next = new_node
+                current.prev = new_node
+                self.tail = new_node
+            else:            
+                new_node.next = current
+                new_node.prev = current.prev
+                current.prev.next = new_node
+                current.prev = new_node
+                
+                
+
+
+
+    
+
+
+
+
+dlist = DoublyLinkedList()
+dlist.append('A')
+#dlist.append('B')
+#dlist.display_dlist()
+#dlist.prepend('1')
+#dlist.prepend('-1')
+#dlist.display_dlist()
+dlist.insert(10, 'test')
+dlist.display_dlist()
+dlist.insert(3, 'last')
