@@ -194,12 +194,12 @@ In selection sort we start by finding the minimum value in a given list and move
 
 ```  
 
-def selection\_sort(input\_list):
-    for idx in range(len(input\_list)):
-        min\_idx = idx
-        for j in range( idx +1, len(input\_list)):
-            if input\_list[min\_idx]\&gt; input\_list[j]:
-                min\_idx = j
+def selection_sort(input_list):
+    for idx in range(len(input_list)):
+        min_idx = idx
+        for j in range(idx + 1, len(input_list)):
+            if input_list[min_idx]\&gt; input_list[j]:
+                min_idx = j
 
 ```
 
