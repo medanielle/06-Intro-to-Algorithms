@@ -1,4 +1,4 @@
-from node import SinglyLinkedList
+from node_howard import SinglyLinkedList
 import random
 
 class Node:

@@ -73,7 +73,7 @@ O(n^2)
 # in our best case scenario where our list is already sorted, there are **no swaps**
 # so we can modify our algoritm to be more effienct
 
-def bubble_sort(my_list):
+def updated_bubble_sort(my_list):
     n = len(my_list)
     # do n-1 searches
     while n > 1:

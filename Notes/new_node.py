@@ -195,16 +195,15 @@ class CircularLinked:
             current_node = current_node.next
             print(current_node.data)
             
-        
-        def Howard_reverse(self):
-            current = self.head
-            prev = None
-            next = None
-            while curr is not None:
-                next = current.next
-                current.next = prev
-                prev = current
-                current = next
+    def Howard_reverse(self):
+        current = self.head
+        prev = None
+        next = None
+        while current is not None:
+            next = current.next
+            current.next = prev
+            prev = current
+            current = next
 
 # c_linked = CircularLinked()
 # c_linked.append(5)
